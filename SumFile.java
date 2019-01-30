@@ -14,7 +14,7 @@ public class SumFile {
             e.printStackTrace();
         }
 
-        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("output.txt")))) {
+        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("outputSumFile.txt")))) {
             try {
                 writer.write(String.valueOf(sum));
             } catch (IOException e) {
