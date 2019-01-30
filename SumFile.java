@@ -5,7 +5,7 @@ public class SumFile {
     public static void main(String[] args) throws IOException {
         int sum = 0;
         try {
-            Scanner reader = new Scanner(new File("input.txt"));
+            Scanner reader = new Scanner(new File("inputSumFile.txt"));
             while (reader.hasNext()) {
                 sum += reader.nextInt();
             }
