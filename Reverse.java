@@ -2,11 +2,13 @@ import java.util.Scanner;
 
 public class Reverse {
     public static void main(String[] args) {
-
+/*
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         String input = reader.nextLine();
         reader.close();
-
+*/
+        MyScanner reader = new MyScanner(System.in);
+        String input = reader.nextLine();
         char[] reverseInput = input.toCharArray();
         int begin = 0;
         int end = reverseInput.length - 1;
