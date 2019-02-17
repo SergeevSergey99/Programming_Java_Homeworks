@@ -11,16 +11,19 @@ public class WordStatIndex {
 
         try {
             Scanner reader = new Scanner(new File("inputWordStat.txt"));
-
+            int i = 0;
             while (reader.hasNext()) {
+                i++;
                 String text;
                 text = reader.next().toLowerCase().replaceAll("\\p{Punct}", "");
                 int index = arrayList.indexOf(text);
                 if (arrayList.contains(text)) {
                     arrayList.set(1 + index, String.valueOf(Integer.parseInt(arrayList.get(index + 1)) + 1));
+                    arrayList.set(index + 2, arrayList.get(index + 2) + " " + i);
                 } else {
                     arrayList.add(text);
                     arrayList.add(String.valueOf(1));
+                    arrayList.add(String.valueOf(i));
                 }
 
             }
