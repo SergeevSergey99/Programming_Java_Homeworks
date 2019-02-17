@@ -1,23 +1,34 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WordStatIndex {
     public static void main(String[] args) {
 
-        String text;
+        ArrayList<String> arrayList = new ArrayList<>();
+
 
         try {
-            Scanner reader = new Scanner(new File(args[0]));
-            StringBuilder textBuilder = new StringBuilder();
+            Scanner reader = new Scanner(new File("inputWordStat.txt"));
+
             while (reader.hasNext()) {
-                textBuilder.append(reader.next().toLowerCase().replaceAll("\\p{Punct}", "")).append(" ");
-//-------------------------------------------------------
+                String text;
+                text = reader.next().toLowerCase().replaceAll("\\p{Punct}", "");
+                int index = arrayList.indexOf(text);
+                if (arrayList.contains(text)) {
+                    arrayList.set(1 + index, String.valueOf(Integer.parseInt(arrayList.get(index + 1)) + 1));
+                } else {
+                    arrayList.add(text);
+                    arrayList.add(String.valueOf(1));
+                }
+
             }
-            text = textBuilder.toString();
+
             reader.close();
-            System.out.println(text);
+
+            System.out.println(arrayList);
+            /*
             String[] textArray = text.split(" ");
             Integer[] textCount = new Integer[textArray.length];
 
@@ -35,7 +46,7 @@ public class WordStatIndex {
                 }
                 out.println(textCount[i]);
             }
-            out.close();
+            out.close();*/
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
