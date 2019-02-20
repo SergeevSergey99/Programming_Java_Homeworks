@@ -11,7 +11,7 @@ public class WordStatIndex {
 
 
         try {
-            Scanner reader = new Scanner(new File("inputWordStat.txt"));
+            Scanner reader = new Scanner(new File(args[0]));
             int i = 0;
 
             while (reader.hasNext()) {
@@ -30,7 +30,7 @@ public class WordStatIndex {
 
             }
 
-            PrintWriter out = new PrintWriter("outputWordStatIndex.txt");//args[1]);
+            PrintWriter out = new PrintWriter(args[1]);
 
             for (String item:arrayList) {
                 out.print(item + " ");
