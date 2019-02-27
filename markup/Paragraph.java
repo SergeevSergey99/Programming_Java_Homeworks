@@ -1,7 +1,13 @@
 package markup;
 
+import java.util.List;
+
 public class Paragraph {
-    String toMarkdown(StringBuilder stringBuilder) {
-        return "";
+    public Paragraph(List<Strong> singletonList) {
+
+    }
+
+    public void toMarkdown(StringBuilder stringBuilder) {
+
     }
 }

@@ -1,7 +1,16 @@
 package markup;
 
+import java.util.List;
+
 public class Emphasis {
-    String toMarkdown(StringBuilder stringBuilder) {
+
+    public Emphasis(){}
+
+    public <T> Emphasis(List<T> asList) {
+
+    }
+
+    public String toMarkdown(StringBuilder stringBuilder) {
         return "";
     }
 }
