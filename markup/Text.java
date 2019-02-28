@@ -1,9 +1,24 @@
 package markup;
 
-public class Text {
+import java.util.ArrayList;
+import java.util.List;
 
-    public Text(String text){}
-    String toMarkdown(StringBuilder stringBuilder) {
-        return "";
+public class Text {
+    private String text = "";
+
+    public Text(String text) {
+        this.text = text;
+    }
+
+    private List<Text> list = new ArrayList<>();
+
+    Text(List<Text> singletonList) {
+        list = singletonList;
+    }
+    void toMarkdown(StringBuilder stringBuilder) {
+        stringBuilder.append(text);
+        for (Text item:list) {
+            item.toMarkdown(stringBuilder);
+        }
     }
 }
