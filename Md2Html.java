@@ -33,7 +33,7 @@ public class Md2Html {
                 //if (chars[i] == ' ' || chars[i] == '>')
                     switch (chars[i]){
                         case 42:
-                            if (chars[i + 1] == '*')
+                            if (chars[i + 1] == '*'){
                                 if(i < chars.length - 2) {
                                     if (chars[i + 2] != ' ') {
                                         String s = stringArrayList.get(0);
@@ -44,7 +44,8 @@ public class Md2Html {
                                     }
 
                                 }
-                            else if (chars[i + 1] != ' '){
+                            }
+                            else if ((chars[i + 1] != 32 || chars[i - 1] != 32) && chars[i - 1] != '\\'){
 
                                 String s = stringArrayList.get(2);
                                 nextLine = nextLine.substring(0, i) + s + nextLine.substring(i + 1);
@@ -69,17 +70,18 @@ public class Md2Html {
                             }
                             break;
                         case 95:
-                            if (chars[i + 1] == '_')
-                                if(i < chars.length - 2) {
-                                if (chars[i + 2] != ' '){
-                                    String s = stringArrayList.get(0);
-                                    nextLine = nextLine.substring(0, i) + s + nextLine.substring(i + 2);
-                                    stringArrayList.set(0, stringArrayListDop.get(0));
-                                    stringArrayListDop.set(0,s);
-                                    chars = nextLine.toCharArray();
+                            if (chars[i + 1] == '_'){
+                                    if(i < chars.length - 2) {
+                                        if (chars[i + 2] != ' '){
+                                        String s = stringArrayList.get(0);
+                                        nextLine = nextLine.substring(0, i) + s + nextLine.substring(i + 2);
+                                        stringArrayList.set(0, stringArrayListDop.get(0));
+                                        stringArrayListDop.set(0,s);
+                                        chars = nextLine.toCharArray();
+                                    }
                                 }
                             }
-                            else if (chars[i + 1] != ' '){
+                            else if ((chars[i + 1] != ' ' || chars[i - 1] != ' ') && chars[i - 1] != '\\'){
 
                                 String s = stringArrayList.get(2);
                                 nextLine = nextLine.substring(0, i) + s + nextLine.substring(i + 1);
