@@ -1,13 +1,14 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public class Image {
+class Image {
     private String url;
     private String file;
-    private List<String> pages;
+    private List<String> pages  = new ArrayList<>();
 
-    public Image(String url, String file, List<String> pages) {
+    Image(String url, String file, String pages) {
         this.url = url;
         this.file = file;
-        this.pages = pages;
+        this.pages.add(pages);
     }
 }
